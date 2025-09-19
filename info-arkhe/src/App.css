@@ -1,0 +1,116 @@
+.container-principal {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.cabecalho {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.cabecalho h1 {
+  font-size: 2.5rem; color: #1e3a8a; margin: 0; font-weight: 800;
+}
+.cabecalho h2 {
+  font-size: 1.5rem; color: #3b82f6; margin-top: 5px; position: relative;
+  display: inline-block; padding-bottom: 10px;
+}
+.cabecalho h2::after {
+  content: ''; position: absolute; bottom: 0; left: 50%;
+  transform: translateX(-50%); width: 100%; height: 2px;
+  background-color: #3b82f6;
+}
+
+.secao-descricao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+.secao-descricao.ordem-inversa {
+  flex-direction: row-reverse;
+}
+.texto-descricao {
+  flex: 1;
+  max-width: 450px;
+}
+.texto-descricao h3 {
+  font-size: 1.8rem; font-weight: 700; color: #1e3a8a;
+  margin-top: 0; margin-bottom: 15px; line-height: 1.3;
+}
+.texto-descricao p {
+  font-size: 1rem; line-height: 1.6; color: #333;
+}
+.ilustracao-descricao {
+  flex: 1; display: flex; justify-content: center; align-items: center;
+}
+.ilustracao-descricao img {
+  max-width: 100%; height: auto;
+}
+
+.secao-mecanismos {
+  text-align: center;
+  margin-top: 40px;
+}
+.secao-mecanismos h3 {
+  font-size: 1.8rem;
+  color: #1e3a8a;
+  margin-bottom: 30px;
+}
+.container-botoes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 25px; 
+  padding-bottom: 20px; 
+}
+
+.conteudo-detalhe-wrapper {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, margin-top 0.4s ease-in-out, height 0.3s ease-in-out;
+  margin-top: 0;
+}
+.conteudo-detalhe-wrapper.open {
+  max-height: 600px; opacity: 1; margin-top: 25px;
+}
+
+.conteudo-fade-container {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.conteudo-fade-container.fading-out {
+  opacity: 0;
+}
+
+.fade-in {
+  animation: fadeInAnimation 0.25s ease-out forwards;
+}
+
+.fade-out {
+  animation: fadeOutAnimation 0.25s ease-in forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
